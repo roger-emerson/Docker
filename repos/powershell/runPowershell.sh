@@ -1,2 +1,2 @@
 #/bin/bash
-docker run -it mcr.microsoft.com/powershell
+docker run -it emerson-pwsh pwsh 
