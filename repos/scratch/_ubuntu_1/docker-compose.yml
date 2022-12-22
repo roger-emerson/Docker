@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  system:
+    image: "ubuntu"
+    container_name: emerson-ubuntu
+    build: .
+    tty: true
+    command: 
+      - /bin/sh
+      - -c
+      - |
+        apt-get update
+        apt-get install -y net-tools
+        tail -f /etc/hosts
+    ports:
+      - "1000:1001"
+    
