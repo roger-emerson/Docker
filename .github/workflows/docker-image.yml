@@ -15,6 +15,6 @@ jobs:
     - name: Build from the Dockerfile
       working-directory: /opt/actions-runner/_work/Docker/Docker/repos/scratch/_python_1
       run: docker build . -t docker-cicd-image:$(date +%s)
-    - name: Compose Docker Image
+    - name: Compose the Docker Image
       working-directory: /opt/actions-runner/_work/Docker/Docker/repos/scratch/_python_1
       run: docker compose up -d 
