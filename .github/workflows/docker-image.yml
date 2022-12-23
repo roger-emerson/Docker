@@ -13,4 +13,5 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: pwd && ls -lart
-      #run: docker build -t docker-cicd-image:$(date +%s) ./.github/workflows/Dockerfile
+      run: cd .github/workflows/
+      run: docker build -t docker-cicd-image:$(date +%s) .
