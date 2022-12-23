@@ -6,7 +6,7 @@ services:
       - "8000:5000"
   redis:
     #image: "redis:alpine"
-    image: "docker-cicd-image"
+    image: "github-python-cicd"
 
 #version: "3"
 #services:
