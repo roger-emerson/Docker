@@ -12,7 +12,9 @@ jobs:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v3
-    - run: pwd && ls -lart
-    - run: cd .github/workflows/
-    - run: pwd && ls -lart
-    - run: docker build . -t docker-cicd-image:$(date +%s)
+    - name: Set the working directory (test)
+      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/scratch/_python_1
+      run: pwd && ls -lart
+    - name: Build from the Dockerfile
+      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/scratch/_python_1
+      run: docker build . -t docker-cicd-image:$(date +%s)
