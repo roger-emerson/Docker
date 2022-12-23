@@ -8,10 +8,10 @@ on:
 
 jobs:
   build:
+    name: Build Docker Image
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: pwd && ls -lart
-      run: cd .github/workflows/
-      run: docker build -t docker-cicd-image:$(date +%s) .
+    - run: pwd && ls -lart
+    - run: cd .github/workflows/
+    - run: docker build -t docker-cicd-image:$(date +%s) .
