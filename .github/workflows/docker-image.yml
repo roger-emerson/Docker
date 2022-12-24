@@ -7,11 +7,24 @@ on:
     branches: [ "main" ]
 
 jobs:
+
+  stage:
+    name: Stop Imaging Environment
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v3
+    - name: Stop ANY running containers
+      run: docker ps -a | xargs docker stop 
+    - name: Stop ANY composed from the current working-directory
+      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/scratch/_python_1
+      run: docker compose down
+    - name: Clean Docker system cache
+      run: docker system prune -f
+
   build:
     name: Build Docker Image
     runs-on: self-hosted
     steps:
-    - uses: actions/checkout@v3
     - name: Build from the Dockerfile
       working-directory: /opt/actions-runner/_work/Docker/Docker/repos/scratch/_python_1
       run: docker build . 
