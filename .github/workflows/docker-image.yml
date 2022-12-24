@@ -18,6 +18,8 @@ jobs:
     - name: Stop ANY composed from the current working-directory
       working-directory: /opt/actions-runner/_work/Docker/Docker/repos/scratch/_python_1
       run: docker compose down
+    - name: Remove ANY dangling Docker Images
+      run: docker images --filter "dangling=true" -q || xargs docker image rm
     - name: Clean Docker system cache
       run: docker system prune -f
 
