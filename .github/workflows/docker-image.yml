@@ -9,12 +9,12 @@ on:
 jobs:
 
   stage:
-    name: Stop Imaging Environment
+    name: Stage Imaging Environment
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v3
     - name: Stop ANY running containers
-      run: docker ps -a | xargs docker stop 
+      run: docker ps -aq | xargs docker stop 
     - name: Stop ANY composed from the current working-directory
       working-directory: /opt/actions-runner/_work/Docker/Docker/repos/scratch/_python_1
       run: docker compose down
@@ -32,4 +32,4 @@ jobs:
       working-directory: /opt/actions-runner/_work/Docker/Docker/repos/scratch/_python_1
       run: docker compose up -d 
     - name: Curl the URL
-      run: curl http://localhost:80000
+      run: curl localhost:80000
