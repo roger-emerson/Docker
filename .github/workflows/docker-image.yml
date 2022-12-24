@@ -14,7 +14,9 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build from the Dockerfile
       working-directory: /opt/actions-runner/_work/Docker/Docker/repos/scratch/_python_1
-      run: docker build . -t github-python-cicd
+      run: docker build . 
     - name: Compose the Docker Image
       working-directory: /opt/actions-runner/_work/Docker/Docker/repos/scratch/_python_1
       run: docker compose up -d 
+    - name: Curl the URL
+      run: curl http://localhost:80000
