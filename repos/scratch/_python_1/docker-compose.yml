@@ -5,4 +5,4 @@ services:
     ports:
       - "8000:5000"
   redis:
-    image: "redis:alpine"
+    image: "github-cicd:latest"
