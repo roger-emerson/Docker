@@ -31,5 +31,3 @@ jobs:
     - name: Compose the Docker Image
       working-directory: /opt/actions-runner/_work/Docker/Docker/repos/scratch/_python_1
       run: docker compose up -d 
-    - name: Curl the URL
-      run: curl localhost:80000
