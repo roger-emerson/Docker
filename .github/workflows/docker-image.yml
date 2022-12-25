@@ -29,8 +29,8 @@ jobs:
     runs-on: self-hosted
     steps:
     - name: Build from the Dockerfile
-      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/scratch/_python_1
+      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/compile/_python_1/
       run: docker build . -t github-cicd:latest
     - name: Compose the Docker Image
-      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/scratch/_python_1
+      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/compile/_python_1/
       run: docker compose up -d 
