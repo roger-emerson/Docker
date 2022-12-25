@@ -1,17 +1,13 @@
 version: "3.8"
 services:
   system:
-    image: "brndnmtthws/tweet-delete"
-    container_name: emerson-ubuntu
+    image: "twitter:main"
+    container_name: emerson-twitter
     build: .
     tty: true
     command: 
       - /bin/sh
       - -c
       - |
-        apt-get update
-        apt-get install -y net-tools
         tail -f /etc/hosts
-    ports:
-      - "1000:1001"
     
