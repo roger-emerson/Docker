@@ -16,7 +16,7 @@ jobs:
     - name: Stop ANY running containers
       run: docker ps -aq | xargs docker stop || echo "No running containers found..."
     - name: Stop ANY composed from the current working-directory
-      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/scratch/_python_1
+      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/compile/_python_1/
       run: docker compose down
     - name: Remove ANY dangling Docker Images
       run: docker images --filter "dangling=true" -q || xargs docker image rm
