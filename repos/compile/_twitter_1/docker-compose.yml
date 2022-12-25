@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   system:
-    image: "twitter:main"
+    image: "twitter"
     container_name: emerson-twitter
     build: .
     tty: true
