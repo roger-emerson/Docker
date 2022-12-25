@@ -1,5 +1,3 @@
-FROM brndnmtthws/tweet-delete
-WORKDIR /home
-RUN hostname
+FROM brndnmtthws/tweet-delete:main
 
 
