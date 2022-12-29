@@ -1,8 +1,11 @@
-FROM ubuntu
-WORKDIR /home
-COPY update.sh /home
-RUN chmod +xwr /home/update.sh
-RUN /home/update.sh
+#FROM ubuntu
+FROM ubuntu/nginx:latest
+#WORKDIR /home
+COPY update.sh /opt
+RUN chmod +xwr /opt/update.sh
+RUN sh /opt/update.sh
+
+#SECONDARY COMMANDS
 #RUN echo 'updating repos'
 #RUN apt-get update
 #RUN echo 'installing net-tools'
