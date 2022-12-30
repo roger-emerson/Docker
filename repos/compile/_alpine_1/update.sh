@@ -1,7 +1,8 @@
-echo "[$(date)======== updating repos ========]"
+#! /bin/bash
+echo  "[$(date)] | Updating repos..."
 apk update
 sleep 1
 
-echo "[$(date)======== installing net-tools ========]"
+echo "[$(date)] | Installing net-tools..."
 apk get net-tools 
 sleep 1
