@@ -4,5 +4,5 @@ apk update
 sleep 1
 
 echo "[$(date)] | Installing net-tools..."
-apk get net-tools 
+apk add net-tools 
 sleep 1

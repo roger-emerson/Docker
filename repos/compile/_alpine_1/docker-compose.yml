@@ -9,8 +9,6 @@ services:
       - /bin/sh
       - -c
       - |
-        apt-get update
-        apt-get install -y net-tools
         tail -f /etc/hosts
     ports:
       - "1002:1002"
