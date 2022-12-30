@@ -1,7 +1,7 @@
-echo "[======== updating repos ========]"
-apt-get update
+echo "[$(date)======== updating repos ========]"
+apk update
 sleep 1
 
-echo "[======== installing net-tools ========]"
-apt-get install -y net-tools 
+echo "[$(date)======== installing net-tools ========]"
+apk get net-tools 
 sleep 1
