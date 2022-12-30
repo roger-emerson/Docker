@@ -1,8 +1,8 @@
 version: "3.8"
 services:
   system:
-    image: "emerson-ubuntu"
-    container_name: emerson-ubuntu
+    image: "emerson-alpine"
+    container_name: emerson-alpine
     build: .
     tty: true
     command: 
@@ -13,5 +13,5 @@ services:
         apt-get install -y net-tools
         tail -f /etc/hosts
     ports:
-      - "1001:1001"
+      - "1002:1002"
     
