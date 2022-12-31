@@ -3,3 +3,4 @@ COPY update.sh /opt
 RUN chmod +xwr /opt/update.sh
 RUN sh /opt/update.sh
 RUN echo "$(date)" >> /opt/shit_date.txt
+RUN echo "shit"

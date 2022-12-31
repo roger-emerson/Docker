@@ -4,11 +4,11 @@ on:
   push:
     branches: [ "main" ]
     paths: 
-    - '/repos/compile/_alpine_1/**'
+    - 'repos/compile/_alpine_1/**'
   pull_request:
     branches: [ "main" ]
     paths:
-    - '/repos/compile/_alpine_1/**'
+    - 'repos/compile/_alpine_1/**'
 
 jobs:
 
