@@ -6,3 +6,8 @@ services:
     container_name: emerson-pwsh
     build: .
     tty: true
+    command:
+      - pwsh
+      - -command
+      - |
+        Find-Module LocalAccountManagement | Install-Module -Force -Verbose
