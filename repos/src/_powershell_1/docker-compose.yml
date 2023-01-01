@@ -2,6 +2,7 @@ version: "3.8"
 services:
   system:
     image: "emerson-pwsh"
+    hostname: emerson-pwsh-001
     container_name: emerson-pwsh
     build: .
     tty: true
