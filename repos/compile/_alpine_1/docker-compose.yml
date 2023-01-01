@@ -9,5 +9,5 @@ services:
       - /bin/sh
       - -c
       - |
-        mkdir /temp
+        tail -f /etc/hosts
     
