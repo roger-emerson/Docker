@@ -28,6 +28,11 @@ RUN apk add --no-cache --virtual .pipeline-deps readline linux-pam \
     && ln -s /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn \
     && ln -s /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg
 
+#Add Domain Controller to the hosts file
+RUN echo "10.10.10.50 bassnet.local" >> /etc/hosts \
+    && echo "10.10.10.50 svr-bassnet-dc1" >> /etc/hosts \
+    && echo "10.10.10.50 svr-bassnet-dc1.bassnet.local" >> /etc/hosts
+
 LABEL com.azure.dev.pipelines.agent.handler.node.path="/usr/local/bin/node"
 
 # Use PowerShell as the default shell

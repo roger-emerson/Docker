@@ -10,5 +10,7 @@ services:
       - pwsh
       - -command
       - |
-        Find-Module LocalAccountManagement | Install-Module -Force -Verbose
+        Find-Module LocalAccountManagement | Install-Module -Confirm:$false -Force -SkipPublisherCheck | Out-Null
+        Find-Module PSWSMAN | Install-Module -Confirm:$false -Force -SkipPublisherCheck | Out-Null
+        Install-WSMan -Confirm:$false | Out-Null
         Get-Content /etc/hosts -Tail 1 -Wait
