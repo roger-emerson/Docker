@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  system:
+    image: "emerson-busybox"
+    container_name: emerson-busybox
+    build: .
+    tty: true
+    command: 
+      - /bin/sh
+      - -c
+      - |
+        tail -f /etc/hosts
+    

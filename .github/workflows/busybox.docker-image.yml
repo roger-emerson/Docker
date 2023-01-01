@@ -1,14 +1,14 @@
-name: Alpine Docker Image CI
+name: BusyBox Docker Image CI
 
 on:
   push:
     branches: [ "main" ]
     paths: 
-    - 'repos/src/_alpine_1/**'
+    - 'repos/src/_busybox_1/**'
   pull_request:
     branches: [ "main" ]
     paths:
-    - 'repos/src/_alpine_1/**'
+    - 'repos/src/_busybox_1/**'
 
 jobs:
 
@@ -18,9 +18,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Stop ANY running containers
-      run: docker ps --filter "name=emerson-alpine" -q | xargs docker stop || echo "No running containers found..."
+      run: docker ps --filter "name=emerson-busybox" -q | xargs docker stop || echo "No running containers found..."
     - name: Stop ANY composed from the current working-directory
-      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/src/_alpine_1/
+      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/src/_busybox_1/
       run: docker compose down
     - name: Remove ANY dangling Docker Images
       run: docker images --filter "dangling=true" -q || xargs docker image rm
@@ -33,8 +33,8 @@ jobs:
     runs-on: self-hosted
     steps:
     - name: Build from the Dockerfile
-      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/src/_alpine_1/
-      run: docker build . -t emerson-alpine
+      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/src/_busybox_1/
+      run: docker build . -t emerson-busybox
     - name: Compose the Docker Image
-      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/src/_alpine_1/
+      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/src/_busybox_1/
       run: docker compose up -d 
