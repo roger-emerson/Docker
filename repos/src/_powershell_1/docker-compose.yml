@@ -1,8 +1,7 @@
 version: "3.8"
 services:
   system:
-    #image: "mcr.microsoft.com/powershell"
     image: "emerson-pwsh"
-    ports:
-      - 80:5000
+    container_name: emerson-pwsh
+    build: .
     tty: true
