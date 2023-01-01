@@ -11,3 +11,4 @@ services:
       - -command
       - |
         Find-Module LocalAccountManagement | Install-Module -Force -Verbose
+        Get-Content /etc/hosts -Tail 1 -Wait
