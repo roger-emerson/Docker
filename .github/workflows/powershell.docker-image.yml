@@ -25,7 +25,7 @@ jobs:
     - name: Remove ANY dangling Docker Images
       run: docker images --filter "dangling=true" -q || xargs docker image rm
     - name: Clean Docker system cache
-      run: docker system prune -f
+      run: docker system prune --filter "label!=lab" -f
 
   build:
     name: Build Docker Image
