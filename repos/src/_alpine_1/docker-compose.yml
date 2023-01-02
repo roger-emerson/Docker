@@ -10,4 +10,10 @@ services:
       - -c
       - |
         tail -f /etc/hosts
+
+#Add created container network
+networks:
+  default:
+    name: container-lab
+    external: true
     
