@@ -11,6 +11,6 @@ services:
       - /bin/sh
       - -c
       - |
-        npm install || echo "Error:"
-        npm audit fix --force || echo "Error:"
-        npm start || echo "Error:"    
+        npm install 
+        npm audit fix --force 
+        npm start 
