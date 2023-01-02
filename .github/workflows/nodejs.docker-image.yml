@@ -1,0 +1,40 @@
+name: nodejs Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: 
+    - 'repos/src/_nodejs_1/**'
+  pull_request:
+    branches: [ "main" ]
+    paths:
+    - 'repos/src/_nodejs_1/**'
+
+jobs:
+
+  stage:
+    name: Stage Imaging Environment
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v3
+    - name: Stop ANY running containers
+      run: docker ps --filter "name=emerson-nodejs" -q | xargs docker stop || echo "No running containers found..."
+    - name: Stop ANY composed from the current working-directory
+      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/src/_nodejs_1/
+      run: docker compose down
+    - name: Remove ANY dangling Docker Images
+      run: docker images --filter "dangling=true" -q || xargs docker image rm
+    - name: Clean Docker system cache
+      run: docker system prune -f
+
+  build:
+    name: Build Docker Image
+    needs: stage
+    runs-on: self-hosted
+    steps:
+    - name: Build from the Dockerfile
+      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/src/_nodejs_1/
+      run: docker build . -t emerson-nodejs
+    - name: Compose the Docker Image
+      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/src/_nodejs_1/
+      run: docker compose up -d 

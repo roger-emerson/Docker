@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  system:
+    image: "emerson-nodejs"
+    container_name: emerson-nodejs
+    build: .
+    tty: true
+    command: 
+      - /bin/sh
+      - -c
+      - |
+        tail -f /etc/hosts
+    
