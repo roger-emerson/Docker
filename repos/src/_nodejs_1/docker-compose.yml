@@ -15,3 +15,8 @@ services:
         npm install 
         npm audit fix --force 
         npm start 
+
+networks:
+  default:
+    name: container-lab
+    external: true
