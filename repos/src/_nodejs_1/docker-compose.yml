@@ -5,6 +5,8 @@ services:
     container_name: emerson-nodejs
     build: .
     tty: true
+    ports: 
+      - "3000:3000"
     command: 
       - /bin/sh
       - -c
