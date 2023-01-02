@@ -91,13 +91,12 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   && yarn --version
 
 #Copy source code
-WORKDIR /usr/local/bin/
-RUN mkdir node-chat
+RUN mkdir /node-chat
 COPY src/ /src
+WORKDIR /node-chat/src
 
 #Initialize node env
 EXPOSE 3000
-WORKDIR /usr/local/bin/node-chat/src
 RUN npm install \
     && npm audit fix --force \
     && npm start
