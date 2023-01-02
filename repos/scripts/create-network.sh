@@ -1,5 +1,6 @@
 #! /bin/bash
 docker network create \
+--label=lab \
 --driver=bridge \
 --scope=local \
 --subnet=10.1.0.0/16 \
