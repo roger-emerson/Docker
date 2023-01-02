@@ -11,5 +11,6 @@ services:
       - /bin/sh
       - -c
       - |
-        tail -f /etc/hosts
-    
+        npm install || echo "Error:"
+        npm audit fix --force || echo "Error:"
+        npm start || echo "Error:"    

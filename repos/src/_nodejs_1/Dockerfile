@@ -94,12 +94,7 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
 RUN mkdir /node-chat
 COPY src/ /src
 WORKDIR /node-chat/src
-
-#Initialize node env
 EXPOSE 3000
-RUN npm install \
-    && npm audit fix --force \
-    && npm start
 
 #Establish entrypoint
 COPY docker-entrypoint.sh /usr/local/bin/
