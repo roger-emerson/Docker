@@ -16,6 +16,7 @@ services:
         npm audit fix --force 
         npm start 
 
+#Add created container network
 networks:
   default:
     name: container-lab
