@@ -90,6 +90,9 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   # smoke test
   && yarn --version
 
+#Copy source code and other files
+RUN mkdir /usr/local/bin/node-chat
+COPY src/ /usr/local/bin/node-chat/src
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 ENTRYPOINT ["docker-entrypoint.sh"]
