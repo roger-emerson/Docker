@@ -5,6 +5,9 @@ services:
     container_name: emerson-ubuntu
     build: .
     tty: true
+    ports:
+      - "1001:1001"
+      - "22:22"    
     command: 
       - /bin/sh
       - -c
@@ -12,8 +15,6 @@ services:
         apt-get update
         apt-get install -y net-tools
         tail -f /etc/hosts
-    ports:
-      - "1001:1001"
 
 #Add created container network
 networks:

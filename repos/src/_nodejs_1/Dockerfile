@@ -93,7 +93,19 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
 #Copy source code
 RUN mkdir /usr/local/bin/node-chat
 COPY src/ /usr/local/bin/nodechat/src
-EXPOSE 3000
+
+#Expose ports for nodejs(3000) and sshd(22)
+EXPOSE 3000 22
+
+#Enable SSHD
+RUN apk update \ 
+  && apk add openssh-server \
+  && apk add --update --no-cache openssh \
+  && mkdir /var/run/sshd \
+  && echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config \
+  && echo 'root:password' | chpasswd \
+  && sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
+  && sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd || echo "unable to find /etc/pam.d/ssh"
 
 #Establish entrypoint
 COPY docker-entrypoint.sh /usr/local/bin/

@@ -5,6 +5,8 @@ services:
     container_name: emerson-busybox
     build: .
     tty: true
+    ports:
+      - "22:22"
     command: 
       - /bin/sh
       - -c
