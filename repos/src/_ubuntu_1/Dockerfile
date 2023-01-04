@@ -5,6 +5,8 @@ COPY update.sh /opt
 RUN chmod +xwr /opt/update.sh
 RUN sh /opt/update.sh
 
+EXPOSE 22
+
 #SECONDARY COMMANDS
 #RUN echo 'updating repos'
 #RUN apt-get update

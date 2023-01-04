@@ -8,7 +8,6 @@ services:
     working_dir: /usr/local/bin/nodechat/src
     ports: 
       - "3000:3000"
-      - "22:22"
     command: 
       - /bin/sh
       - -c

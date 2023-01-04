@@ -95,7 +95,8 @@ RUN mkdir /usr/local/bin/node-chat
 COPY src/ /usr/local/bin/nodechat/src
 
 #Expose ports for nodejs(3000) and sshd(22)
-EXPOSE 3000 22
+EXPOSE 3000
+EXPOSE 22
 
 #Enable SSHD
 RUN apk update \ 

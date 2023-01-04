@@ -6,8 +6,7 @@ services:
     build: .
     tty: true
     ports:
-      - "1001:1001"
-      - "22:22"    
+      - "1001:1001"   
     command: 
       - /bin/sh
       - -c
