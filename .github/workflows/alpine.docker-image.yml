@@ -46,7 +46,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Scan the Docker Image with Snyk
-        run: snyk container test ${{env.DOCKERIMAGE}} 
+        run: snyk container test ${{env.IMAGENAME}} 
 
   deploy:
     name: Compose Docker Image and start Container
