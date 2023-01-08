@@ -6,7 +6,7 @@ services:
     build: .
     tty: true
     ports:
-      - "1000:1000"
+      - "1100:1100"
     command: 
       - /bin/sh
       - -c
