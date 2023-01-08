@@ -13,7 +13,7 @@ services:
       - |
         tail -f /etc/hosts
 
-#Add created container network
+#Add created container network 
 networks:
   default:
     name: container-lab

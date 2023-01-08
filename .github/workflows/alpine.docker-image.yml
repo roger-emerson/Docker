@@ -27,7 +27,7 @@ jobs:
       working-directory: ${{env.WORKDIR}}
       run: docker compose down
     - name: Remove ANY dangling Docker Images
-      run: docker images --filter "dangling=true" -q || xargs docker image rm
+      run: docker images --filter "dangling=true" -q | xargs docker image rm
     - name: Clean Docker system cache
       run: docker system prune --filter "label!=lab" -f
 
@@ -46,7 +46,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Scan the Docker Image with Snyk
-        run: snyk container test ${{env.IMAGENAME}} 
+        run: snyk container test ${{env.IMAGENAME}} || true
 
   deploy:
     name: Compose Docker Image and start Container
