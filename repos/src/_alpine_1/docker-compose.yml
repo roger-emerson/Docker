@@ -14,7 +14,6 @@ services:
         tail -f /etc/hosts
 
 #Add created container network
-#10.1.200.0/16
 networks:
   default:
     name: container-lab

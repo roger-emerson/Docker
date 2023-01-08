@@ -22,9 +22,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Stop ANY running containers
-      run: docker ps --filter "name=$IMAGENAME" -q | xargs docker stop || echo "No running containers found..."
+      run: docker ps --filter "name=${{env.IMAGENAME}}" -q | xargs docker stop || echo "No running containers found..."
     - name: Stop ANY composed from the current working-directory
-      working-directory: $WORKDIR
+      working-directory: ${{env.WORKDIR}}
       run: docker compose down
     - name: Remove ANY dangling Docker Images
       run: docker images --filter "dangling=true" -q || xargs docker image rm
@@ -37,8 +37,8 @@ jobs:
     runs-on: self-hosted
     steps:
     - name: Build from the Dockerfile
-      working-directory: $WORKDIR
-      run: docker build . -t $IMAGENAME
+      working-directory: ${{env.WORKDIR}}
+      run: docker build . -t ${{env.IMAGENAME}}
   
   test:
     name: Scan Docker Image & containers
@@ -46,7 +46,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Scan the Docker Image with Snyk
-        run: snyk container test $DOCKERIMAGE 
+        run: snyk container test ${{env.DOCKERIMAGE}} 
 
   deploy:
     name: Compose Docker Image and start Container
@@ -54,6 +54,6 @@ jobs:
     runs-on: self-hosted
     steps:
     - name: Compose the Docker Image
-      working-directory: $WORKDIR
+      working-directory: ${{env.WORKDIR}}
       run: docker compose up -d 
         
