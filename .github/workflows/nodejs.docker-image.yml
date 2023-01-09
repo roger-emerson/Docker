@@ -10,6 +10,10 @@ on:
     paths:
     - 'repos/src/_nodejs_1/**'
 
+env:
+  WORKDIR: /opt/actions-runner/_work/Docker/Docker/repos/src/_nodejs_1/
+  IMAGENAME: emerson-nodejs
+
 jobs:
 
   stage:
@@ -18,12 +22,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Stop ANY running containers
-      run: docker ps --filter "name=emerson-nodejs" -q | xargs docker stop || echo "No running containers found..."
+      run: docker ps --filter "name=${{env.IMAGENAME}}" -q | xargs docker stop || echo "No running containers found..."
     - name: Stop ANY composed from the current working-directory
-      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/src/_nodejs_1/
+      working-directory: ${{env.WORKDIR}}
       run: docker compose down
     - name: Remove custom Docker Image
-      run: docker rmi emerson-nodejs -f || echo "No images found named 'emerson-nodejs'..."
+      run: docker rmi ${{env.IMAGENAME}} -f || echo "No images found named ${{env.IMAGENAME}}"
     - name: Remove ANY dangling Docker Images
       run: docker images --filter "dangling=true" -q || xargs docker image rm
     - name: Clean Docker system cache
@@ -35,8 +39,23 @@ jobs:
     runs-on: self-hosted
     steps:
     - name: Build from the Dockerfile
-      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/src/_nodejs_1/
-      run: docker build . -t emerson-nodejs
+      working-directory: ${{env.WORKDIR}}
+      run: docker build . -t ${{env.IMAGENAME}}
+
+  test:
+    name: Scan Docker Image & containers
+    needs: build
+    runs-on: self-hosted
+    steps:
+      - name: Scan the Docker Image with Snyk
+        run: snyk container test ${{env.IMAGENAME}} || true
+
+  deploy:
+    name: Compose Docker Image and start Container
+    needs: test
+    runs-on: self-hosted
+    steps:
     - name: Compose the Docker Image
-      working-directory: /opt/actions-runner/_work/Docker/Docker/repos/src/_nodejs_1/
+      working-directory: ${{env.WORKDIR}}
       run: docker compose up -d 
+                
