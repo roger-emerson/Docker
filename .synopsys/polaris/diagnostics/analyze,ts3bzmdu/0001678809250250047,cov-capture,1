@@ -1,0 +1,14 @@
+Coverity Buildless Capture version 2022.12.0 on Darwin 22.2.0 x86_64
+Internal version numbers: 72aa62ce0f p-2022.12-push-63
+
+[INFO] Considering listed files for Java, JavaScript, PHP, Python, Ruby, TypeScript, and Web App Configuration.
+[INFO] Finished considering listed files for Java, JavaScript, PHP, Python, Ruby, TypeScript, and Web App Configuration.
+[INFO] Successfully found JavaScript files.
+[INFO] Successfully found Python files.
+[INFO] Successfully found Configuration Files (Web App Configuration) files.
+[INFO] Emitting source group 1 of 3.
+[INFO] Emitting source group 2 of 3.
+[INFO] Emitting source group 3 of 3.
+[INFO] Emitted 11 JavaScript compilation units (100%) successfully.
+[INFO] Emitted 1 Python 3 compilation unit (100%) successfully.
+[INFO] Emitted 31 Text data compilation units (100%) successfully.

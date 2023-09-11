@@ -1,0 +1,1 @@
+/Users/roger/.synopsys/polaris/coverity-tools-macosx-2022.12.0/bin/cov-manage-emit --dir /Users/roger/Desktop/Docker/.synopsys/polaris/data/coverity/2022.12.0/idir --tus-per-psf=latest list-json

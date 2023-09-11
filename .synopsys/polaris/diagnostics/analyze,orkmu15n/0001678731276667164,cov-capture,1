@@ -1,0 +1,41 @@
+Coverity Buildless Capture version 2022.12.0 on Darwin 22.2.0 x86_64
+Internal version numbers: 72aa62ce0f p-2022.12-push-63
+
+[INFO] Scanning the file system for Ruby and Web App Configuration files.
+[INFO] Finished scanning the file system for Ruby and Web App Configuration files.
+[INFO] Successfully found Configuration Files (Web App Configuration) files.
+[INFO] Listing matching source files and exiting.
+/Users/roger/Desktop/Docker/.dccache
+/Users/roger/Desktop/Docker/README.md
+/Users/roger/Desktop/Docker/polaris.yml
+/Users/roger/Desktop/Docker/repos/README.md
+/Users/roger/Desktop/Docker/repos/src/_alpine_1/Dockerfile
+/Users/roger/Desktop/Docker/repos/src/_alpine_1/docker-compose.yml
+/Users/roger/Desktop/Docker/repos/src/_busybox_1/Dockerfile
+/Users/roger/Desktop/Docker/repos/src/_busybox_1/docker-compose.yml
+/Users/roger/Desktop/Docker/repos/src/_nodejs_1/Dockerfile
+/Users/roger/Desktop/Docker/repos/src/_nodejs_1/README.md
+/Users/roger/Desktop/Docker/repos/src/_nodejs_1/docker-compose.yml
+/Users/roger/Desktop/Docker/repos/src/_nodejs_1/src/config.json
+/Users/roger/Desktop/Docker/repos/src/_nodejs_1/src/package.json
+/Users/roger/Desktop/Docker/repos/src/_nodejs_1/src/public/css/bootstrap.min.css
+/Users/roger/Desktop/Docker/repos/src/_nodejs_1/src/public/css/chat.css
+/Users/roger/Desktop/Docker/repos/src/_nodejs_1/src/public/css/emojione.min.css
+/Users/roger/Desktop/Docker/repos/src/_nodejs_1/src/public/css/jquery-ui.css
+/Users/roger/Desktop/Docker/repos/src/_nodejs_1/src/public/css/ripples.css
+/Users/roger/Desktop/Docker/repos/src/_nodejs_1/src/public/css/ripples.css.map
+/Users/roger/Desktop/Docker/repos/src/_nodejs_1/src/public/fonts/Material-Design-Icons.eot
+/Users/roger/Desktop/Docker/repos/src/_nodejs_1/src/public/fonts/Material-Design-Icons.woff
+/Users/roger/Desktop/Docker/repos/src/_nodejs_1/src/public/fonts/glyphicons-halflings-regular.woff
+/Users/roger/Desktop/Docker/repos/src/_nodejs_1/src/public/js/material.min.js.map
+/Users/roger/Desktop/Docker/repos/src/_nodejs_1/src/public/js/ripples.min.js.map
+/Users/roger/Desktop/Docker/repos/src/_nodejs_1/src/views/index.ejs
+/Users/roger/Desktop/Docker/repos/src/_powershell_1/Dockerfile
+/Users/roger/Desktop/Docker/repos/src/_powershell_1/docker-compose.yml
+/Users/roger/Desktop/Docker/repos/src/_python_1/Dockerfile
+/Users/roger/Desktop/Docker/repos/src/_python_1/docker-compose.yml
+/Users/roger/Desktop/Docker/repos/src/_python_1/requirements.txt
+/Users/roger/Desktop/Docker/repos/src/_twitter_1/Dockerfile
+/Users/roger/Desktop/Docker/repos/src/_twitter_1/docker-compose.yml
+/Users/roger/Desktop/Docker/repos/src/_ubuntu_1/Dockerfile
+/Users/roger/Desktop/Docker/repos/src/_ubuntu_1/docker-compose.yml

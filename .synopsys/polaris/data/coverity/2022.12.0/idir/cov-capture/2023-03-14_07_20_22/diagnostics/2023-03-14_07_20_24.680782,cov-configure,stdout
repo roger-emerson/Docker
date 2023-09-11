@@ -1,0 +1,3 @@
+
+Generated coverity_config.xml at location /Users/roger/Desktop/Docker/.synopsys/polaris/data/coverity/2022.12.0/idir/cov-capture/2023-03-14_07_20_22/compiler-config/sources/coverity_config.xml
+Successfully generated configuration for the filesystem capture patterns: capture-config-files html javascript jsx vue

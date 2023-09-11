@@ -1,0 +1,9 @@
+--no-banner
+--project-view
+/Users/roger/Desktop/Docker/.synopsys/polaris/data/coverity/2022.12.0/idir/cov-capture/2023-03-14_07_16_33/project-info/sources-info.json
+--dir
+/Users/roger/Desktop/Docker/.synopsys/polaris/data/coverity/2022.12.0/idir
+--logging-endpoint
+/Users/roger/Desktop/Docker/.synopsys/polaris/data/coverity/2022.12.0/idir/cov-capture/cov-internal-fluentd-port
+--config
+/Users/roger/Desktop/Docker/.synopsys/polaris/data/coverity/2022.12.0/idir/cov-capture/2023-03-14_07_16_33/compiler-config/sources/coverity_config.xml

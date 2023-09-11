@@ -1,0 +1,53 @@
+version: "1"
+project:
+  organization: rocket
+  name: roger-emerson/Docker
+  branch: main
+  revision:
+    name: 5faa97e7ea51583ea7c4d253c56d6dcfedf3033e
+    date: "2023-01-08T23:24:21-06:00"
+  projectDir: /Users/roger/Desktop/Docker
+  captureDir: /Users/roger/Desktop/Docker/.synopsys/polaris
+capture:
+  fileSystem:
+    ears:
+      extensions: [ear]
+      files:
+      - directory: .
+    java:
+      files:
+      - directory: .
+    javascript:
+      files:
+      - directory: .
+      - excludeRegex: node_modules|bower_components|vendor
+    php:
+      files:
+      - directory: .
+    python:
+      files:
+      - directory: .
+    ruby:
+      files:
+      - directory: .
+    typescript:
+      files:
+      - directory: .
+    wars:
+      extensions: [war]
+      files:
+      - directory: .
+analyze:
+  mode: central
+  coverity:
+    caching:
+      dlls: disable
+      jars: disable
+      pfi: enable
+      rws: disable
+      tu-caching: disable
+    usebudaforjavadotnet: disable
+install:
+  coverity:
+    version: 2022.12.0
+serverUrl: https://rocketsoftware.polaris.synopsys.com

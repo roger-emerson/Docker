@@ -1,0 +1,5 @@
+/Users/roger/.synopsys/polaris/coverity-tools-macosx-2022.12.0/bin/cov-configure
+--typescript
+--no-javascript
+-c
+/Users/roger/Desktop/Docker/.synopsys/polaris/data/coverity/2022.12.0/idir/cov-capture/2023-03-14_08_54_10/compiler-config/sources/coverity_config.xml

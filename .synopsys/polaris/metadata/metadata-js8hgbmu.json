@@ -1,0 +1,29 @@
+{
+ "platform": "macosx",
+ "name": "Coverity",
+ "version": "2022.12.0",
+ "toolMeta": {
+  "captureSize": 1688688,
+  "sourceLanguages": [
+   "Python 3",
+   "Text data",
+   "JavaScript minified",
+   "JavaScript"
+  ],
+  "sourceLanguageSize": {
+   "JavaScript": 42661,
+   "JavaScript minified": 167054,
+   "Python 3": 513,
+   "Text data": 488294
+  },
+  "cliUsageTime": {
+   "initialize": 1295,
+   "setup": 744,
+   "configure": 621,
+   "install": 747,
+   "capture": 38060,
+   "prepare": 0,
+   "total": 41467
+  }
+ }
+}
