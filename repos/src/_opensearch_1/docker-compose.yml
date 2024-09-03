@@ -1,8 +1,7 @@
-version: '3'
 services:
   fluentd:
-    image: fluent/fluentd:latest
-    container_name: fluentd
+    image: os-fluentd:latest
+    container_name: os-fluentd
     ports:
       - "24224:24224"
       - "24224:24224/udp"
@@ -42,6 +41,7 @@ services:
       - 9600:9600
     networks:
       - os-net
+    restart: on-failure
   
   os-node2:
     image: opensearchproject/opensearch:latest
@@ -70,6 +70,7 @@ services:
       - os-data2:/usr/share/opensearch/data
     networks:
       - os-net
+    restart: on-failure
   
   os-dashboards:
     image: opensearchproject/opensearch-dashboards:latest
@@ -87,6 +88,7 @@ services:
       OPENSEARCH_HOSTS: '["https://os-node1:9200","https://os-node2:9200"]'
     networks:
       - os-net
+    restart: on-failure
 
 volumes:
   os-data1:
