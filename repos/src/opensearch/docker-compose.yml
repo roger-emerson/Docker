@@ -1,0 +1,99 @@
+services:
+  os-fluentd:
+    image: os-fluentd:latest
+    container_name: os-fluentd
+    ports:
+      - "24224:24224"
+      - "24224:24224/udp"
+    volumes:
+      - ./fluentd/conf/fluent.conf:/fluentd/etc/fluent.conf
+      - os-fluentd-data:/fluentd/log
+    networks:
+      - os-net
+
+  os-node1:
+    image: opensearchproject/opensearch:latest
+    container_name: os-node1
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: "os-fluentd:24224"
+        tag: "docker.os-node1"
+    environment:
+      - cluster.name=os-cluster
+      - node.name=os-node1
+      - discovery.seed_hosts=os-node1,os-node2
+      - cluster.initial_cluster_manager_nodes=os-node1,os-node2
+      - bootstrap.memory_lock=false
+      - OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m
+      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=Rockwell1017!
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - os-data1:/usr/share/opensearch/data
+    ports:
+      - 9200:9200
+      - 9600:9600
+    networks:
+      - os-net
+    restart: on-failure
+  
+  os-node2:
+    image: opensearchproject/opensearch:latest
+    container_name: os-node2
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: "os-fluentd:24224"
+        tag: "docker.os-node2"
+    environment:
+      - cluster.name=os-cluster
+      - node.name=os-node2
+      - discovery.seed_hosts=os-node1,os-node2
+      - cluster.initial_cluster_manager_nodes=os-node1,os-node2
+      - bootstrap.memory_lock=false
+      - OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m
+      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=Rockwell1017!
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - os-data2:/usr/share/opensearch/data
+    networks:
+      - os-net
+    restart: on-failure
+  
+  os-dashboards:
+    image: opensearchproject/opensearch-dashboards:latest
+    container_name: os-dashboards
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: "os-fluentd:24224"
+        tag: "docker.os-dashboards"
+    ports:
+      - 5601:5601
+    expose:
+      - '5601'
+    environment:
+      OPENSEARCH_HOSTS: '["https://os-node1:9200","https://os-node2:9200"]'
+    networks:
+      - os-net
+    restart: on-failure
+
+volumes:
+  os-data1:
+  os-data2:
+  os-fluentd-data:
+
+networks:
+  os-net:
