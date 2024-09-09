@@ -12,9 +12,10 @@ networks:
     ipam:
       config:
         - subnet: 10.5.0.0/24
+
 services:
   os-fluentd:
-    image: os-fluentd:1.0.0
+    image: os-fluentd:1.0.1
     container_name: os-fluentd
     ports:
       - "24224:24224"
@@ -32,6 +33,9 @@ services:
       driver: "fluentd"
       options:
         fluentd-address: "os-fluentd:24224"
+        fluentd-async-connect: "true"
+        fluentd-retry-wait: 1s
+        fluentd-max-retries: 30
         tag: "docker.os-node1"
     environment:
       - cluster.name=os-cluster
@@ -39,7 +43,7 @@ services:
       - discovery.seed_hosts=os-node1,os-node2
       - cluster.initial_cluster_manager_nodes=os-node1,os-node2
       - bootstrap.memory_lock=false
-      - OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m
+      - OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g
       - OPENSEARCH_INITIAL_ADMIN_PASSWORD=Rockwell1017!
     ulimits:
       memlock:
@@ -55,6 +59,8 @@ services:
       - 9600:9600
     networks:
       - os-net
+    dns:
+      - 8.8.8.8
     restart: on-failure
     depends_on:
       - os-fluentd
@@ -66,6 +72,9 @@ services:
       driver: "fluentd"
       options:
         fluentd-address: "os-fluentd:24224"
+        fluentd-async-connect: "true"
+        fluentd-retry-wait: 1s
+        fluentd-max-retries: 30
         tag: "docker.os-node2"
     environment:
       - cluster.name=os-cluster
@@ -73,7 +82,7 @@ services:
       - discovery.seed_hosts=os-node1,os-node2
       - cluster.initial_cluster_manager_nodes=os-node1,os-node2
       - bootstrap.memory_lock=false
-      - OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m
+      - OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g
       - OPENSEARCH_INITIAL_ADMIN_PASSWORD=Rockwell1017!
     ulimits:
       memlock:
@@ -87,6 +96,8 @@ services:
     networks:
       - os-net
     restart: on-failure
+    dns:
+      - 8.8.8.8
     depends_on:
       - os-fluentd
   
@@ -97,6 +108,9 @@ services:
       driver: "fluentd"
       options:
         fluentd-address: "os-fluentd:24224"
+        fluentd-async-connect: "true"
+        fluentd-retry-wait: 1s
+        fluentd-max-retries: 30
         tag: "docker.os-dashboards"
     ports:
       - 5601:5601
@@ -107,5 +121,7 @@ services:
     networks:
       - os-net
     restart: on-failure
+    dns:
+      - 8.8.8.8
     depends_on:
       - os-fluentd
