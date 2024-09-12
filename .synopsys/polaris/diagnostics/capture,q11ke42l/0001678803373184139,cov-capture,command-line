@@ -1,1 +1,0 @@
-/Users/roger/.synopsys/polaris/coverity-tools-macosx-2022.12.0/bin/cov-capture --dir /var/folders/7_/83gk_pd52yg0vcf6rmc0t1rh0000gn/T/fs_capture_temp_idir658583484/idir --source-dir /Users/roger/Desktop/Docker --language ruby --just-print-matches

@@ -1,4 +1,0 @@
-[INFO] Compiling /Users/roger/Desktop/Docker/repos/src/_python_1/app.py as Python 3
-[INFO] Expanded command line: /Users/roger/.synopsys/polaris/coverity-tools-macosx-2022.12.0/bin/cov-internal-python3-fe --dir /Users/roger/Desktop/Docker/.synopsys/polaris/data/coverity/2022.12.0/idir --cov-emit-invocation-id 3 --link-file /Users/roger/Desktop/Docker/.synopsys/polaris/data/coverity/2022.12.0/idir/tmp/cejf-fec552d7d5c40a3db8ffa8d7e206e36a/frontend-emit-0.link /Users/roger/Desktop/Docker/repos/src/_python_1/app.py 
-[INFO] Command line with response file: /Users/roger/.synopsys/polaris/coverity-tools-macosx-2022.12.0/bin/cov-internal-python3-fe @utf8@/Users/roger/Desktop/Docker/.synopsys/polaris/data/coverity/2022.12.0/idir/tmp/cejf-fec552d7d5c40a3db8ffa8d7e206e36a/fe-to-json-argfile-0.txt 
-[INFO] Successfully compiled /Users/roger/Desktop/Docker/repos/src/_python_1/app.py as Python 3

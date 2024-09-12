@@ -1,4 +1,0 @@
-Native Compiler invocation: ./ /Users/roger/Desktop/Docker/repos/src/_python_1/app.py
-Working directory: /Users/roger/Desktop/Docker
-Comptype: python
-* Configuring Python Filesystem Capture
