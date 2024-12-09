@@ -32,4 +32,6 @@ RUN cat /home/ansible/.ssh/id_rsa.pub >> /home/ansible/.ssh/authorized_keys
 # Expose SSH
 EXPOSE 22
 
+USER root
+
 CMD ["/usr/sbin/sshd", "-D"]
